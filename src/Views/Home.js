@@ -1,23 +1,40 @@
 import React from "react";
-import LargeCharacterSheet from "./LargeCharacterSheet";
-//import MediumCharacterSheet from './MediumCharacterSheet';
-//import SmallCharacterSheet from './SmallCharacterSheet';
-import GenerateButton from "../Components/Buttons/GenerateButton";
-//import PrintButton from '../Components/Buttons/PrintButton';
-//import SaveButton from '../Components/Buttons/SaveButton';
 
-function Home() {
-  /*TODO: This will most likely be a component to house the different views and pass in the character object thru props */
-  return (
-    <div className="container">
-      <div className="buttonArea">
-        <GenerateButton />
+class Home extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      character: null,
+    };
+    this.GenrateCharacter = this.GenrateCharacter.bind(this);
+  }
+
+  GenrateCharacter() {
+    this.setState(state => ({
+      character: {
+        name: "Super Cool Character Name",
+      }})
+    );
+  }
+
+  render() {
+    return (
+      <div className="container">
+        <div className="buttonArea">
+          <button onClick={this.GenrateCharacter}>
+            Generate Random Character
+          </button>
+        </div>
+        <div className="content">
+          {this.state.character === null ? (
+            <h1>No Character Generated</h1>
+          ) : (
+            <h1>The character '{this.state.character.name}' has been created</h1>
+          )}
+        </div>
       </div>
-      <div className="content">
-        <LargeCharacterSheet />
-      </div>
-    </div>
-  );
+    );
+  }
 }
 
 export default Home;
