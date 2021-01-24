@@ -1,4 +1,5 @@
 import React from "react";
+import Generator from '../Helpers/Generator';
 
 class Home extends React.Component {
   constructor(props) {
@@ -10,11 +11,13 @@ class Home extends React.Component {
   }
 
   GenrateCharacter() {
+    let generator = new Generator();
+    generator.GenerateCharacter().then(c => {
     this.setState(state => ({
-      character: {
-        name: "Super Cool Character Name",
-      }})
+      character: c
+    })
     );
+  });
   }
 
   render() {
@@ -29,8 +32,11 @@ class Home extends React.Component {
           {this.state.character === null ? (
             <h1>No Character Generated</h1>
           ) : (
+            <div>
             <h1>The character '{this.state.character.name}' has been created</h1>
-          )}
+            <p>Race: '{this.state.character.race}'</p>
+            <p>Class: '{this.state.character.class}'</p>
+          </div>)}
         </div>
       </div>
     );
