@@ -25,8 +25,8 @@ function Navigation(){
             <span>
                 <FontAwesomeIcon 
                     icon={faBars}
-                    style={{paddingRight: '5px', paddingLeft:' 5px'}}
-                    onClick={() => setShowMenu(!showMenu)}
+                    style={{paddingRight: '5px', paddingLeft:' 5px', width:'2em'}}
+                    onClick={() => setShowMenu(!showMenu)}w
                 />
                 Menu
             </span>

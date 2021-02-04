@@ -1,42 +1,69 @@
 import React from "react";
-import Generator from '../Helpers/Generator';
+import Generator from "../Helpers/Generator";
+import "./characterSheet.css";
+import { Button, Form } from "react-bootstrap";
 
 class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      character: null,
+      character: {
+        name: "",
+        class: "",
+        race: "",
+        inspiration: 0,
+        proficiencyBonus: 0
+      },
+      races: [],
+      classes: []
     };
     this.GenrateCharacter = this.GenrateCharacter.bind(this);
   }
 
   GenrateCharacter() {
     let generator = new Generator();
-    generator.GenerateCharacter().then(c => {
-    this.setState(state => ({
-      character: c
-    })
-    );
-  });
+    generator.GenerateCharacter().then((c) => {
+      this.setState((state) => ({
+        character: c,
+      }));
+    });
   }
 
   render() {
     return (
-      <div className="container">
+      <div>
         <div className="buttonArea">
-          <button onClick={this.GenrateCharacter}>
+          <Button variant="primary" onClick={this.GenrateCharacter}>
             Generate Random Character
-          </button>
+          </Button>
         </div>
         <div className="content">
-          {this.state.character === null ? (
-            <h1>No Character Generated</h1>
-          ) : (
-            <div>
-            <h1>The character '{this.state.character.name}' has been created</h1>
-            <p>Race: '{this.state.character.race}'</p>
-            <p>Class: '{this.state.character.class}'</p>
-          </div>)}
+          <Form>
+            <Form.Group>
+              <Form.Label>Character Name</Form.Label>
+              <Form.Control
+                size="sm"
+                type="text"
+                placeholder={this.state.character.name}
+              />
+              <Form.Label>Inspiration</Form.Label>
+              <Form.Control
+                size="sm"
+                type="text"
+                placeholder={this.state.character.inspiration}
+              />
+              <Form.Label>Proficiency Bonus</Form.Label>
+              <Form.Control
+                size="sm"
+                type="text"
+                placeholder={this.state.character.proficiencyBonus}
+              />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>Class</Form.Label>
+              <Form.Control/>
+            </Form.Group>
+          </Form>
         </div>
       </div>
     );
