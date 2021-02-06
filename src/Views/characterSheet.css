@@ -1,12 +1,1 @@
 
-.buttonArea {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-}
-
-.content {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}
