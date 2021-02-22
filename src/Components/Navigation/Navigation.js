@@ -22,10 +22,10 @@ function Navigation(){
 
     return (
         <nav>
-            <span>
+            <span style={{display: 'flex'}}>
                 <FontAwesomeIcon 
                     icon={faBars}
-                    style={{paddingRight: '5px', paddingLeft:' 5px', width:'2em'}}
+                    style={{ mariginTop: '10px', paddingRight: '5px', paddingLeft:' 5px', width:'2em'}}
                     onClick={() => setShowMenu(!showMenu)}
                 />
                 Menu

@@ -12,17 +12,28 @@ export default class Generator {
   GenerateCharacter = (classes, races) => {
     //ToDo:
     let character = {};
-
+    let strength = this.rollAbility();
+    let dexterity = this.rollAbility();
+    let constitution = this.rollAbility();
+    let intelligence = this.rollAbility();
+    let wisdom = this.rollAbility();
+    let charisma = this.rollAbility();
     character.name = "Super cool character name";
     character.class = this.GetClass(classes);
     character.race = this.GetRace(races);
     character.abilityScores = {
-      strength: this.rollAbility(),
-      dexterity: this.rollAbility(),
-      constitution: this.rollAbility(),
-      intelligence: this.rollAbility(),
-      wisdom: this.rollAbility(),
-      charisma: this.rollAbility(),
+      strength: strength,
+      strengthMod: this.getModifier(strength),
+      dexterity: dexterity,
+      dexterityhMod: this.getModifier(dexterity),
+      constitution: constitution,
+      constitutionMod: this.getModifier(constitution),
+      intelligence: intelligence,
+      intelligenceMod: this.getModifier(intelligence),
+      wisdom: wisdom,
+      wisdomMod: this.getModifier(wisdom),
+      charisma: charisma,
+      charismaMod: this.getModifier(charisma),
     };
     console.log(character);
     return character;
@@ -82,4 +93,10 @@ export default class Generator {
     });
     return result;
   };
+
+  getModifier  = (base) =>{
+    if(base && base > 3 && base < 18) { 
+    return Math.floor((base - 10) / 2);
+    }
+  }
 }

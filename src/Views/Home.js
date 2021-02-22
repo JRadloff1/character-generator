@@ -1,5 +1,6 @@
 import React from "react";
 import Generator from "../Helpers/Generator";
+import Navigation from "../Components/Navigation/Navigation";
 import "./characterSheet.css";
 import { Button, Form, Col, Row, Container } from "react-bootstrap";
 
@@ -135,15 +136,20 @@ class Home extends React.Component {
   }
   render() {
     return (
-      <Container>
-        <div className="text-right">
-          <Button variant="primary" onClick={this.GenrateCharacter}>
-            Generate Random Character
-          </Button>
-        </div>
+      <Container >
+        <Row className="mt-3 mb-3">
+          <Navigation />
+          <Col lg="12" md="" sm="" xs="">
+            <div className="text-right">
+              <Button variant="primary" onClick={this.GenrateCharacter}>
+                Generate Random Character
+              </Button>
+            </div>
+          </Col>
+        </Row>
         <Form>
           <Row>
-            <Col lg="4" md="" sm="" xs="">
+            <Col lg="4" md="" sm="" xs="" className="m-1 bg-info p-3 rounded">
               <Row>
                 <Col>
                   <Form.Group>
@@ -184,7 +190,7 @@ class Home extends React.Component {
                 </Col>
               </Row>
             </Col>
-            <Col lg="8" md="" sm="" xs="">
+            <Col lg="8" md="" sm="" xs="" className="m-1 bg-info p-3 rounded">
               <Row>
                 <Col lg="5" md="" sm="" xs="">
                   <Form.Group>
@@ -279,8 +285,8 @@ class Home extends React.Component {
               </Row>
             </Col>
           </Row>
-          <Row>
-            <Col lg="2" md="" sm="" xs="">
+          <Row className="mt-5 ">
+            <Col lg="2" md="" sm="" xs="" className="m-1 bg-info p-3 rounded">
               <Form.Group>
                 <Form.Label>Strength</Form.Label>
                 <Form.Control
@@ -342,7 +348,7 @@ class Home extends React.Component {
                 />
               </Form.Group>
             </Col>
-            <Col lg="6" md="" sm="" xs="">
+            <Col lg="6" md="" sm="" xs="" className="m-1 bg-info p-3 rounded">
               <Row>
                 <Col lg="4" md="" sm="" xs="">
                   <Form.Group>
@@ -365,17 +371,10 @@ class Home extends React.Component {
                       onChange={this.onInputChange.bind(this)}
                     />
                   </Form.Group>
-                  <Form.Label>Death Saves</Form.Label>
-                  <Form.Group>
-                    <Form.Label>Successes</Form.Label>
-                    <Form.Check />
-                    <Form.Check />
-                    <Form.Check />
-                  </Form.Group>
                 </Col>
                 <Col lg="4" md="" sm="" xs="">
                   <Form.Group>
-                    <Form.Label>initiative</Form.Label>
+                    <Form.Label>Initiative</Form.Label>
                     <Form.Control
                       type="number"
                       size="sm"
@@ -394,37 +393,117 @@ class Home extends React.Component {
                       onChange={this.onInputChange.bind(this)}
                     />
                   </Form.Group>
-                  <Form.Group>
-                    <Form.Label>Failures</Form.Label>
-                    <Form.Check />
-                    <Form.Check />
-                    <Form.Check />
-                  </Form.Group>
                 </Col>
                 <Col lg="4" md="" sm="" xs="">
                   <Form.Group>
                     <Form.Label>Speed</Form.Label>
-                    <Form.Control type="text" />
+                    <Form.Control type="text" size="sm" />
                   </Form.Group>
                   <Form.Group>
                     <Form.Label>Hit Dice</Form.Label>
-                    <Form.Control as="select" />
+                    <Form.Control size="sm" as="select" />
                   </Form.Group>
                 </Col>
               </Row>
               <Row>
-                <Form.Label>Saving Throws</Form.Label>
+                <Col>
+                  <Row>
+                    <Col>
+                      <Form.Label>Death Saves</Form.Label>
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col>
+                      <Form.Group>
+                        <Form.Label>Successes</Form.Label>
+                        &nbsp; &nbsp;
+                        <Form.Check inline="true" />
+                        <Form.Check inline="true" />
+                        <Form.Check inline="true" />
+                      </Form.Group>
+                    </Col>
+                    <Col>
+                      <Form.Group>
+                        <Form.Label>Failures</Form.Label>
+                        &nbsp; &nbsp;
+                        <Form.Check inline="true" />
+                        <Form.Check inline="true" />
+                        <Form.Check inline="true" />
+                      </Form.Group>
+                    </Col>
+                  </Row>
+                </Col>
+              </Row>
+              <Row>
                 <Col lg="4" md="" sm="" xs="">
                   <Form.Group>
-                    <Form.Label></Form.Label>
-                    <Form.Control />
+                    <Form.Label>Strength</Form.Label>
+                    <Form.Control
+                      type="number"
+                      size="sm"
+                      name="abilityScores.strengthMod"
+                      value={this.state.character.abilityScores.strengthMod}
+                      onChange={this.onSubFieldInputChange.bind(this)}
+                    />
+                  </Form.Group>
+                  <Form.Group>
+                    <Form.Label>Intelligence</Form.Label>
+                    <Form.Control
+                      type="number"
+                      size="sm"
+                      name="abilityScores.intelligenceMod"
+                      value={this.state.character.abilityScores.intelligenceMod}
+                      onChange={this.onSubFieldInputChange.bind(this)}
+                    />
                   </Form.Group>
                 </Col>
-                <Col lg="4" md="" sm="" xs=""></Col>
-                <Col lg="4" md="" sm="" xs=""></Col>
+                <Col lg="4" md="" sm="" xs="">
+                  <Form.Group>
+                    <Form.Label>Dexterity</Form.Label>
+                    <Form.Control
+                      type="number"
+                      size="sm"
+                      name="abilityScores.dexterityMod"
+                      value={this.state.character.abilityScores.dexterityMod}
+                      onChange={this.onSubFieldInputChange.bind(this)}
+                    />
+                  </Form.Group>
+                  <Form.Group>
+                    <Form.Label>Wisdom</Form.Label>
+                    <Form.Control
+                      type="number"
+                      size="sm"
+                      name="abilityScores.wisdomMod"
+                      value={this.state.character.abilityScores.wisdomMod}
+                      onChange={this.onSubFieldInputChange.bind(this)}
+                    />
+                  </Form.Group>
+                </Col>
+                <Col lg="4" md="" sm="" xs="">
+                  <Form.Group>
+                    <Form.Label>Constitution</Form.Label>
+                    <Form.Control
+                      type="number"
+                      size="sm"
+                      name="abilityScores.constitutionMod"
+                      value={this.state.character.abilityScores.constitutionMod}
+                      onChange={this.onSubFieldInputChange.bind(this)}
+                    />
+                  </Form.Group>
+                  <Form.Group>
+                    <Form.Label>Charisma</Form.Label>
+                    <Form.Control
+                      type="number"
+                      size="sm"
+                      name="abilityScores.charismaMod"
+                      value={this.state.character.abilityScores.charismaMod}
+                      onChange={this.onSubFieldInputChange.bind(this)}
+                    />
+                  </Form.Group>
+                </Col>
               </Row>
             </Col>
-            <Col lg="4" md="" sm="" xs="">
+            <Col lg="4" md="" sm="" xs="" className="m-1 bg-info p-3 rounded">
               <Form.Group>
                 <Form.Label>Personality Traits</Form.Label>
                 <Form.Control as="textarea" />
@@ -443,7 +522,270 @@ class Home extends React.Component {
               </Form.Group>
             </Col>
           </Row>
+          <Row>
+            <Col lg="12" md="" sm="" xs="" className="m-1 bg-info p-3 rounded">
+              <Form.Label>Skills</Form.Label>
+              <Row>
+                <Col lg="2" md="" sm="" xs="">
+                  <Form.Group>
+                    <Form.Label>Acrobatics</Form.Label>
+                    <Form.Control
+                      type="number"
+                      size="sm"
+                      name="skills.acrobatics"
+                    />
+                  </Form.Group>
+                  <Form.Group>
+                  <Form.Label>Insight</Form.Label>
+                    <Form.Control
+                      type="number"
+                      size="sm"
+                      name="skills.insight"
+                    />
+                  </Form.Group>
+                  <Form.Group>
+                    <Form.Label>Performance</Form.Label>
+                    <Form.Control
+                      type="number"
+                      size="sm"
+                      name="skills.performance"
+                    />
+                  </Form.Group>
+                </Col>
+                <Col lg="2" md="" sm="" xs="">
+                <Form.Group>
+                    <Form.Label>Animal Handling</Form.Label>
+                    <Form.Control
+                      type="number"
+                      size="sm"
+                      name="skills.animalHandling"
+                    />
+                  </Form.Group>
+                  <Form.Group>
+                  <Form.Label>Intimidation</Form.Label>
+                    <Form.Control
+                      type="number"
+                      size="sm"
+                      name="skills.intimidation"
+                    />
+                  </Form.Group>
+                  <Form.Group>
+                    <Form.Label>Persuasion</Form.Label>
+                    <Form.Control
+                      type="number"
+                      size="sm"
+                      name="skills.persuasion"
+                    />
+                  </Form.Group>
+                </Col>
+                <Col lg="2" md="" sm="" xs="">
+                <Form.Group>
+                    <Form.Label>Arcana</Form.Label>
+                    <Form.Control
+                      type="number"
+                      size="sm"
+                      name="skills.arcana"
+                    />
+                  </Form.Group>
+                  <Form.Group>
+                  <Form.Label>Investigation</Form.Label>
+                    <Form.Control
+                      type="number"
+                      size="sm"
+                      name="skills.investigation"
+                    />
+                  </Form.Group>
+                  <Form.Group>
+                    <Form.Label>Religion</Form.Label>
+                    <Form.Control
+                      type="number"
+                      size="sm"
+                      name="skills.religion"
+                    />
+                  </Form.Group>
+                </Col>
+                <Col lg="2" md="" sm="" xs="">
+                <Form.Group>
+                    <Form.Label>Athletics</Form.Label>
+                    <Form.Control
+                      type="number"
+                      size="sm"
+                      name="skills.athletics"
+                    />
+                  </Form.Group>
+                  <Form.Group>
+                  <Form.Label>Medicine</Form.Label>
+                    <Form.Control
+                      type="number"
+                      size="sm"
+                      name="skills.medicine"
+                    />
+                  </Form.Group>
+                  <Form.Group>
+                    <Form.Label>Sleight of Hand</Form.Label>
+                    <Form.Control
+                      type="number"
+                      size="sm"
+                      name="skills.sleightOfHand"
+                    />
+                  </Form.Group>
+                </Col>
+                <Col lg="2" md="" sm="" xs="">
+                <Form.Group>
+                    <Form.Label>Deception</Form.Label>
+                    <Form.Control
+                      type="number"
+                      size="sm"
+                      name="skills.deception"
+                    />
+                  </Form.Group>
+                  <Form.Group>
+                  <Form.Label>Nature</Form.Label>
+                    <Form.Control
+                      type="number"
+                      size="sm"
+                      name="skills.nature"
+                    />
+                  </Form.Group>
+                  <Form.Group>
+                    <Form.Label>Stealth</Form.Label>
+                    <Form.Control
+                      type="number"
+                      size="sm"
+                      name="skills.stealth"
+                    />
+                  </Form.Group>
+                </Col>
+                <Col lg="2" md="" sm="" xs="">
+                <Form.Group>
+                    <Form.Label>History</Form.Label>
+                    <Form.Control
+                      type="number"
+                      size="sm"
+                      name="skills.history"
+                    />
+                  </Form.Group>
+                  <Form.Group>
+                  <Form.Label>Perception</Form.Label>
+                    <Form.Control
+                      type="number"
+                      size="sm"
+                      name="skills.perception"
+                    />
+                  </Form.Group>
+                  <Form.Group>
+                    <Form.Label>Survival</Form.Label>
+                    <Form.Control
+                      type="number"
+                      size="sm"
+                      name="skills.survival"
+                    />
+                  </Form.Group>
+                </Col>
+              </Row>
+            </Col>
+          </Row>
+          <Row>
+            <Col lg="12" md="" sm="" xs="" className="m-1 bg-info p-3 rounded">
+              <Form.Label>Attacks & Spellcasting</Form.Label>
+              <Row>
+              <Col lg="3" md="" sm="" xs="">
+              <Form.Group>
+                    <Form.Label>Name</Form.Label>
+                    <Form.Control
+                      size="sm"
+                      name="atkName1"
+                    />
+               </Form.Group>
+               <Form.Group>
+                    <Form.Label>Name</Form.Label>
+                    <Form.Control
+                      size="sm"
+                      name="atkName2"
+                    />
+               </Form.Group>
+               <Form.Group>
+                    <Form.Label>Name</Form.Label>
+                    <Form.Control
+                      size="sm"
+                      name="atkName3"
+                    />
+               </Form.Group>
+              </Col>
+              <Col lg="2" md="" sm="" xs="">
+              <Form.Group>
+                    <Form.Label>ATK Bonus</Form.Label>
+                    <Form.Control
+                      size="sm"
+                      name="atkBonus1"
+                    />
+               </Form.Group>
+               <Form.Group>
+                    <Form.Label>ATK Bonus</Form.Label>
+                    <Form.Control
+                      size="sm"
+                      name="atkBonus2"
+                    />
+               </Form.Group>
+               <Form.Group>
+                    <Form.Label>ATK Bonus</Form.Label>
+                    <Form.Control
+                      size="sm"
+                      name="atkBonus3"
+                    />
+               </Form.Group>
+              </Col>
+              <Col lg="3" md="" sm="" xs="">
+              <Form.Group>
+                    <Form.Label>Damage/Type</Form.Label>
+                    <Form.Control
+                      size="sm"
+                      name="dmgType1"
+                    />
+               </Form.Group>
+               <Form.Group>
+                    <Form.Label>Damage/Type</Form.Label>
+                    <Form.Control
+                      size="sm"
+                      name="dmgType2"
+                    />
+               </Form.Group>
+               <Form.Group>
+                    <Form.Label>Damage/Type</Form.Label>
+                    <Form.Control
+                      size="sm"
+                      name="dmgType3"
+                    />
+               </Form.Group>
+              </Col> 
+              <Col lg="4" md="" sm="" xs="">
+              <Form.Group>
+                    <Form.Label>Notes</Form.Label>
+                    <Form.Control
+                      size="sm"
+                      name="atkNotes1"
+                    />
+               </Form.Group>
+               <Form.Group>
+                    <Form.Label>Notes</Form.Label>
+                    <Form.Control
+                      size="sm"
+                      name="atkNotes2"
+                    />
+               </Form.Group>
+               <Form.Group>
+                    <Form.Label>Notes</Form.Label>
+                    <Form.Control
+                      size="sm"
+                      name="atkNotes3"
+                    />
+               </Form.Group>
+              </Col>        
+              </Row>
+            </Col>
+          </Row>
         </Form>
+
       </Container>
     );
   }

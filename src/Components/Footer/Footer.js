@@ -3,7 +3,7 @@ import './Footer.css';
 
 function Footer() {
   return (
-    <footer className="">
+    <footer className="position-sticky">
       <div className="copyright">
       &copy; Copyright 2021
       </div>
