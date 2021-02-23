@@ -137,21 +137,27 @@ class Home extends React.Component {
   render() {
     return (
       <Container >
-        <Row className="mt-3 mb-3">
-          <Navigation />
+        <Row className="mt-3 mb-3 ">
           <Col lg="12" md="" sm="" xs="">
+          <Navigation />
             <div className="text-right">
+             <Button variant="outline-primary" className="mr-2 ">
+                Print Character
+              </Button>
+              <Button variant="outline-primary" className="mr-2">
+                Save Character
+              </Button>
               <Button variant="primary" onClick={this.GenrateCharacter}>
                 Generate Random Character
               </Button>
             </div>
-          </Col>
+            </Col>
         </Row>
         <Form>
-          <Row>
-            <Col lg="4" md="" sm="" xs="" className="m-1 bg-info p-3 rounded">
+          <Row className="mb-3 bg-info p-3 rounded">
+            <Col lg="4" md="" sm="" xs="" >
               <Row>
-                <Col>
+                <Col lg="12" md="6">
                   <Form.Group>
                     <Form.Label>Character Name</Form.Label>
                     <Form.Control
@@ -164,7 +170,7 @@ class Home extends React.Component {
                 </Col>
               </Row>
               <Row>
-                <Col lg="6" md="" sm="" xs="">
+                <Col lg="6" md="6" sm="" xs="">
                   <Form.Group>
                     <Form.Label>Inspiration</Form.Label>
                     <Form.Control
@@ -176,7 +182,7 @@ class Home extends React.Component {
                     />
                   </Form.Group>
                 </Col>
-                <Col lg="6" md="" sm="" xs="">
+                <Col lg="6" md="6" sm="" xs="">
                   <Form.Group>
                     <Form.Label>Proficiency Bonus</Form.Label>
                     <Form.Control
@@ -190,9 +196,9 @@ class Home extends React.Component {
                 </Col>
               </Row>
             </Col>
-            <Col lg="8" md="" sm="" xs="" className="m-1 bg-info p-3 rounded">
+            <Col lg="8" md="" sm="" xs="" >
               <Row>
-                <Col lg="5" md="" sm="" xs="">
+                <Col lg="5" md="5" sm="" xs="">
                   <Form.Group>
                     <Form.Label>Class</Form.Label>
                     <Form.Control
@@ -208,7 +214,7 @@ class Home extends React.Component {
                     </Form.Control>
                   </Form.Group>
                 </Col>
-                <Col lg="3" md="" sm="" xs="">
+                <Col lg="3" md="3" sm="" xs="">
                   <Form.Group>
                     <Form.Label>Level</Form.Label>
                     <Form.Control
@@ -220,7 +226,7 @@ class Home extends React.Component {
                     />
                   </Form.Group>
                 </Col>
-                <Col lg="4" md="" sm="" xs="">
+                <Col lg="4" md="4" sm="" xs="">
                   <Form.Group>
                     <Form.Label>Background</Form.Label>
                     <Form.Control
@@ -238,7 +244,7 @@ class Home extends React.Component {
                 </Col>
               </Row>
               <Row>
-                <Col lg="5" md="" sm="" xs="">
+                <Col lg="5" md="5" sm="" xs="">
                   <Form.Group>
                     <Form.Label>Race</Form.Label>
                     <Form.Control
@@ -254,7 +260,7 @@ class Home extends React.Component {
                     </Form.Control>
                   </Form.Group>
                 </Col>
-                <Col lg="4" md="" sm="" xs="">
+                <Col lg="4" md="4" sm="" xs="">
                   <Form.Group>
                     <Form.Label>Alignment</Form.Label>
                     <Form.Control
@@ -270,7 +276,7 @@ class Home extends React.Component {
                     </Form.Control>
                   </Form.Group>
                 </Col>
-                <Col lg="3" md="" sm="" xs="">
+                <Col lg="3" md="3" sm="" xs="">
                   <Form.Group>
                     <Form.Label>Experience Points</Form.Label>
                     <Form.Control
@@ -285,8 +291,8 @@ class Home extends React.Component {
               </Row>
             </Col>
           </Row>
-          <Row className="mt-5 ">
-            <Col lg="2" md="" sm="" xs="" className="m-1 bg-info p-3 rounded">
+          <Row className="mt-3 mb-3 bg-info p-3 rounded">
+            <Col lg="2" md="4" sm="" xs="" className="">
               <Form.Group>
                 <Form.Label>Strength</Form.Label>
                 <Form.Control
@@ -348,9 +354,9 @@ class Home extends React.Component {
                 />
               </Form.Group>
             </Col>
-            <Col lg="6" md="" sm="" xs="" className="m-1 bg-info p-3 rounded">
-              <Row>
-                <Col lg="4" md="" sm="" xs="">
+            <Col lg="6" md="8" sm="" xs="" className="">
+              <Row className="mb-3">
+                <Col lg="4" md="6" sm="" xs="">
                   <Form.Group>
                     <Form.Label>Armor Class</Form.Label>
                     <Form.Control
@@ -372,7 +378,7 @@ class Home extends React.Component {
                     />
                   </Form.Group>
                 </Col>
-                <Col lg="4" md="" sm="" xs="">
+                <Col lg="4" md="6" sm="" xs="">
                   <Form.Group>
                     <Form.Label>Initiative</Form.Label>
                     <Form.Control
@@ -394,7 +400,7 @@ class Home extends React.Component {
                     />
                   </Form.Group>
                 </Col>
-                <Col lg="4" md="" sm="" xs="">
+                <Col lg="4" md="6" sm="" xs="">
                   <Form.Group>
                     <Form.Label>Speed</Form.Label>
                     <Form.Control type="text" size="sm" />
@@ -405,7 +411,7 @@ class Home extends React.Component {
                   </Form.Group>
                 </Col>
               </Row>
-              <Row>
+              <Row className="mb-2">
                 <Col>
                   <Row>
                     <Col>
@@ -434,8 +440,15 @@ class Home extends React.Component {
                   </Row>
                 </Col>
               </Row>
-              <Row>
-                <Col lg="4" md="" sm="" xs="">
+              <Row className="">
+                <Col>
+                <Row>
+                  <Col>
+                  <Form.Label>Saving Throws</Form.Label>
+                  </Col>
+                  </Row>
+                <Row>
+                <Col lg="4" md="6" sm="" xs="">
                   <Form.Group>
                     <Form.Label>Strength</Form.Label>
                     <Form.Control
@@ -457,7 +470,7 @@ class Home extends React.Component {
                     />
                   </Form.Group>
                 </Col>
-                <Col lg="4" md="" sm="" xs="">
+                <Col lg="4" md="6" sm="" xs="">
                   <Form.Group>
                     <Form.Label>Dexterity</Form.Label>
                     <Form.Control
@@ -479,7 +492,7 @@ class Home extends React.Component {
                     />
                   </Form.Group>
                 </Col>
-                <Col lg="4" md="" sm="" xs="">
+                <Col lg="4" md="6" sm="" xs="">
                   <Form.Group>
                     <Form.Label>Constitution</Form.Label>
                     <Form.Control
@@ -502,8 +515,10 @@ class Home extends React.Component {
                   </Form.Group>
                 </Col>
               </Row>
+              </Col>
+              </Row>
             </Col>
-            <Col lg="4" md="" sm="" xs="" className="m-1 bg-info p-3 rounded">
+            <Col lg="4" md="12" sm="" xs="" className="">
               <Form.Group>
                 <Form.Label>Personality Traits</Form.Label>
                 <Form.Control as="textarea" />
@@ -523,10 +538,10 @@ class Home extends React.Component {
             </Col>
           </Row>
           <Row>
-            <Col lg="12" md="" sm="" xs="" className="m-1 bg-info p-3 rounded">
+            <Col lg="12" md="12" sm="" xs="" className="mb-3 bg-info p-3 rounded">
               <Form.Label>Skills</Form.Label>
               <Row>
-                <Col lg="2" md="" sm="" xs="">
+                <Col lg="2" md="3" sm="" xs="">
                   <Form.Group>
                     <Form.Label>Acrobatics</Form.Label>
                     <Form.Control
@@ -552,7 +567,7 @@ class Home extends React.Component {
                     />
                   </Form.Group>
                 </Col>
-                <Col lg="2" md="" sm="" xs="">
+                <Col lg="2" md="3" sm="" xs="">
                 <Form.Group>
                     <Form.Label>Animal Handling</Form.Label>
                     <Form.Control
@@ -578,7 +593,7 @@ class Home extends React.Component {
                     />
                   </Form.Group>
                 </Col>
-                <Col lg="2" md="" sm="" xs="">
+                <Col lg="2" md="3" sm="" xs="">
                 <Form.Group>
                     <Form.Label>Arcana</Form.Label>
                     <Form.Control
@@ -604,7 +619,7 @@ class Home extends React.Component {
                     />
                   </Form.Group>
                 </Col>
-                <Col lg="2" md="" sm="" xs="">
+                <Col lg="2" md="3" sm="" xs="">
                 <Form.Group>
                     <Form.Label>Athletics</Form.Label>
                     <Form.Control
@@ -630,7 +645,7 @@ class Home extends React.Component {
                     />
                   </Form.Group>
                 </Col>
-                <Col lg="2" md="" sm="" xs="">
+                <Col lg="2" md="3" sm="" xs="">
                 <Form.Group>
                     <Form.Label>Deception</Form.Label>
                     <Form.Control
@@ -656,7 +671,7 @@ class Home extends React.Component {
                     />
                   </Form.Group>
                 </Col>
-                <Col lg="2" md="" sm="" xs="">
+                <Col lg="2" md="3" sm="" xs="">
                 <Form.Group>
                     <Form.Label>History</Form.Label>
                     <Form.Control
@@ -686,10 +701,10 @@ class Home extends React.Component {
             </Col>
           </Row>
           <Row>
-            <Col lg="12" md="" sm="" xs="" className="m-1 bg-info p-3 rounded">
+            <Col lg="12" md="" sm="" xs="" className="mb-5 bg-info p-3 rounded">
               <Form.Label>Attacks & Spellcasting</Form.Label>
               <Row>
-              <Col lg="3" md="" sm="" xs="">
+              <Col lg="3" md="4" sm="" xs="">
               <Form.Group>
                     <Form.Label>Name</Form.Label>
                     <Form.Control
@@ -712,7 +727,7 @@ class Home extends React.Component {
                     />
                </Form.Group>
               </Col>
-              <Col lg="2" md="" sm="" xs="">
+              <Col lg="2" md="3" sm="" xs="">
               <Form.Group>
                     <Form.Label>ATK Bonus</Form.Label>
                     <Form.Control
@@ -735,7 +750,7 @@ class Home extends React.Component {
                     />
                </Form.Group>
               </Col>
-              <Col lg="3" md="" sm="" xs="">
+              <Col lg="3" md="5" sm="" xs="">
               <Form.Group>
                     <Form.Label>Damage/Type</Form.Label>
                     <Form.Control
@@ -758,7 +773,7 @@ class Home extends React.Component {
                     />
                </Form.Group>
               </Col> 
-              <Col lg="4" md="" sm="" xs="">
+              <Col lg="4" md="12" sm="" xs="">
               <Form.Group>
                     <Form.Label>Notes</Form.Label>
                     <Form.Control

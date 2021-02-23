@@ -25,7 +25,7 @@ export default class Generator {
       strength: strength,
       strengthMod: this.getModifier(strength),
       dexterity: dexterity,
-      dexterityhMod: this.getModifier(dexterity),
+      dexterityMod: this.getModifier(dexterity),
       constitution: constitution,
       constitutionMod: this.getModifier(constitution),
       intelligence: intelligence,

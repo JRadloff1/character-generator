@@ -22,7 +22,7 @@ function Navigation(){
 
     return (
         <nav>
-            <span style={{display: 'flex'}}>
+            <span>
                 <FontAwesomeIcon 
                     icon={faBars}
                     style={{ mariginTop: '10px', paddingRight: '5px', paddingLeft:' 5px', width:'2em'}}
